@@ -7,5 +7,20 @@ export default function Pokemon() {
 
   const { status, data, error, isFetching } = usePokemonId(id);
 
-  return <p>Pokemon ID: {id}</p>;
+  return (
+    <div>
+      <p>Pokemon ID: {id}</p>
+      <button type="button" onClick={() => router.back()}>
+        Click here to go back
+      </button>
+      {!isFetching ? (
+        <div>
+          <h1>{data.name}</h1>
+          <img src={data.images.large} />
+        </div>
+      ) : (
+        <text>Loading</text>
+      )}
+    </div>
+  );
 };
