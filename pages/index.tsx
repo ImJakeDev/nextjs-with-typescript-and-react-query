@@ -26,11 +26,14 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <Link href="/pokemon" >
-              <h2>Pokemon Example</h2>
-            </Link>
+
+          <Link href="/pokemon">
+            <div className={styles.card}>
+              <h2>Pokemon Example &rarr;</h2>
+              <p>This is a web page that hits the pokemontcg.io api.</p>
           </div>
+          </Link>
+          
           <Card
             link="https://nextjs.org/docs"
             title="Documentation"

@@ -10,7 +10,7 @@ export default function Pokemon() {
      !isFetching ? (
       <div className={styles.container}>
         {data.map((card:any, id:string) => (
-          <Card key={id} small={card.images.small} large={card.images.large} />
+          <Card key={id} small={card.images.small} />
         ))}
       </div>
     ):(
