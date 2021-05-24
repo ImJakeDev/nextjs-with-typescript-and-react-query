@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from '../../styles/Pokemon.module.css'
+import moStyles from '../../styles/Pokemon.module.scss'
 interface IProps {
   id: string;
   small?: string;
@@ -8,10 +9,12 @@ interface IProps {
 
 export default function Card({id, small, large}:IProps) {
   return (
-    <Link href={`/pokemon/${id}`}>
-      <div className={styles.cardContainer}>
-        <img src={large || small || undefined} className={styles.pokemonCard} />
-      </div>
-    </Link>
+    <div>
+      <Link href={`/pokemon/${id}`}>
+        <div className={[styles.card, styles.pokemonCard].join(" ")}>
+            <img src={large || small || undefined} style={{width: "100%" }}/>
+        </div>
+      </Link>
+    </div>
   )
 }
