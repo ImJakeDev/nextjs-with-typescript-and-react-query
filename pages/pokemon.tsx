@@ -1,4 +1,5 @@
 import usePokeCards from '../hooks/usePokeCards'
+import Card from '../components/pokemon/card'
 
 export default function Pokemon() {
 
@@ -7,8 +8,8 @@ export default function Pokemon() {
   return (
      !isFetching ? (
       <ul>
-      {data.map((card:any) => (
-        <text>{JSON.stringify(card.images.large)}<br></br><br></br></text>
+      {data.map((card:any, id:string) => (
+        <Card key={id} large={card.images.large}/>
       ))}
     </ul>
     ):(
