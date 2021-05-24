@@ -1,10 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import usePokeCards from '../hooks/usePokeCards'
 
 import Card from '../components/Card'
 
 export default function Home() {
+
+  const { status, data:Data, error, isFetching } = usePokeCards();
+  console.log(Data);
+
+  // const cards = Data!.data.data
+  // const cards = Data!.data.data || error
+  const cards = Data ? Data.data.data : error
+  console.log(cards);
+  
+
   return (
     <div className={styles.container}>
       <Head>
