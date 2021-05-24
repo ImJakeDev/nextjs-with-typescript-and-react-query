@@ -3,7 +3,7 @@ interface IProps {
   large?: string;
 }
 
-export default function card({small, large}:IProps) {
+export default function Card({small, large}:IProps) {
   return (
     <li>
       <img src={large ? large : small}/>
