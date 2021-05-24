@@ -3,8 +3,12 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.cardContainer {
+  padding: 10px;
+}
 
 .pokemonCard {
   max-width: 250px;
   max-height: 350px;
+  cursor: pointer;
 }

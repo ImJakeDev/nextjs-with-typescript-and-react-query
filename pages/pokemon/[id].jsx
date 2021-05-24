@@ -19,7 +19,7 @@ export default function Pokemon() {
           <img src={data.images.large} />
         </div>
       ) : (
-        <text>Loading</text>
+        <div>Loading</div>
       )}
     </div>
   );
