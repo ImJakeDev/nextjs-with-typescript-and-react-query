@@ -1,20 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import usePokeCards from '../hooks/usePokeCards'
 
 import Card from '../components/Card'
 
 export default function Home() {
-
-  const { status, data:Data, error, isFetching } = usePokeCards();
-  console.log(Data);
-
-  // const cards = Data!.data.data
-  // const cards = Data!.data.data || error
-  const cards = Data ? Data.data.data : error
-  console.log(cards);
-  
 
   return (
     <div className={styles.container}>
@@ -35,6 +26,11 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
+          <div className={styles.card}>
+            <Link href="/pokemon" >
+              <h2>Pokemon Example</h2>
+            </Link>
+          </div>
           <Card
             link="https://nextjs.org/docs"
             title="Documentation"

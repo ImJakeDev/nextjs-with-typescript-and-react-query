@@ -7,7 +7,7 @@ const getCards = async () => {
       headers: { "X-Api-Key": process.env.POKEMON_TCG_TOKEN}
     }
   )
-  return data;
+  return data.data.data;
 };
 
 export default function usePost() {
