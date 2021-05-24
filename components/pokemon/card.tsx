@@ -1,13 +1,15 @@
+import Link from 'next/link'
 import styles from '../../styles/Pokemon.module.css'
 interface IProps {
+  id: string;
   small?: string;
   large?: string;
 }
 
-export default function Card({small, large}:IProps) {
+export default function Card({id, small, large}:IProps) {
   return (
-    <div>
+    <Link href={`/pokemon/${id}`}>
       <img src={large || small || undefined} className={styles.pokemonCard} />
-    </div>
+    </Link>
   )
 }

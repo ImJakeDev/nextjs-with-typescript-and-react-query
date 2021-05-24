@@ -31,7 +31,7 @@ export default function Home() {
             <div className={styles.card}>
               <h2>Pokemon Example &rarr;</h2>
               <p>This is a web page that hits the pokemontcg.io api.</p>
-          </div>
+            </div>
           </Link>
           
           <Card
