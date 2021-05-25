@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import usePokemonId from '../../hooks/usePokemonId'
+import Profile from '../../components/pokemon/Profile'
 
 export default function Pokemon() {
   const router = useRouter();
@@ -14,10 +15,7 @@ export default function Pokemon() {
         Click here to go back
       </button>
       {!isFetching ? (
-        <div>
-          <h1>{data.name}</h1>
-          <img src={data.images.large} />
-        </div>
+        <Profile data={data} />
       ) : (
         <div>Loading</div>
       )}
