@@ -1,13 +1,13 @@
 import { useQuery } from "react-query";
-import axios from "axios";
 
 const getPokemonInfo = async (name: string) => {
-  const data = await axios.get(
-    `https://pokeapi.co/api/v2/pokemon/${name}/`
-  )
-  return data.data;
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+  if (!res.ok) {
+    throw new Error('Network response was not ok')
+  }
+  return res.json();
 };
 
-export default function usePokeInfo(name: string) {
-  return useQuery(["pokemon info", name], () => getPokemonInfo(name));
+export default function usePokemonInfo(name: string) {
+  return useQuery(["pokemon-info", name], () => getPokemonInfo(name));
 }
