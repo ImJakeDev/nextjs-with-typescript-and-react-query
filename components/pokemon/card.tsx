@@ -6,14 +6,12 @@ interface IProps {
   large?: string;
 }
 
-export default function Card({id, small, large}:IProps) {
+export default function Card({id, small, large}: IProps): React.ReactElement {
   return (
-    <div>
-      <Link href={`/pokemon/${id}`}>
-        <div className={[styles.card, styles.pokemonCard].join(" ")}>
-            <img src={large || small || undefined} style={{width: "100%" }}/>
-        </div>
-      </Link>
-    </div>
+    <Link href={`/pokemon/${id}`}>
+      <div className={[styles.card, styles.pokemonCard].join(" ")}>
+          <img src={large || small || undefined} style={{width: "100%" }}/>
+      </div>
+    </Link>
   )
 }
