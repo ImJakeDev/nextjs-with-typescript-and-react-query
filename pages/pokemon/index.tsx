@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import usePokeCards from '../hooks/usePokeCards'
-import Card from '../components/pokemon/Card'
-import styles from '../styles/Pokemon.module.css'
+import usePokeCards from '../../hooks/usePokeCards'
+import Card from '../../components/pokemon/Card'
+import styles from '../../styles/Pokemon.module.css'
 
 export default function Pokemon() {
   const router = useRouter();
