@@ -1,8 +1,8 @@
-export default interface IPokemon {
+export interface IPokemon {
   data: IPokemonData;
 }
 
-interface IPokemonData {
+export interface IPokemonData {
   abilities: [];
   artist: string;
   attacks: IPokemonAttacks[];

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from '../../styles/Pokemon.module.css'
+
 interface IProps {
   id: string;
   small?: string;
