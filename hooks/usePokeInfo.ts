@@ -1,4 +1,7 @@
 import { useQuery } from "react-query";
+import IReactQueryRes from '../types/react-query-res-interface'
+
+export interface IPokemonQuery extends IReactQueryRes {}
 
 const getPokemonInfo = async (name: string) => {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
@@ -8,6 +11,6 @@ const getPokemonInfo = async (name: string) => {
   return res.json();
 };
 
-export default function usePokemonInfo(name: string) {
+export function usePokemonInfo(name: string) {
   return useQuery(["pokemon-info", name], () => getPokemonInfo(name));
 }

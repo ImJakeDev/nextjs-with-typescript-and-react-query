@@ -1,44 +1,25 @@
-import usePokemonInfo from '../../hooks/usePokeInfo'
+import { usePokemonInfo, IPokemonQuery } from '../../hooks/usePokeInfo'
+import IPokemon from '../../types/pokemon-tcg-interface'
 
-interface IPokemon {
-  data: any;
-}
+export default function Profile ({data}:IPokemon) {
+  console.log(data);
+  
+  const query:IPokemonQuery = usePokemonInfo(data.name.toLowerCase());
+  console.log(query);
 
-interface IPokemonInfo {
-  data: any;
-  error: any;
-  status: string;
-  isFetching: boolean;
-  isLoading: boolean;
-  isError: boolean;
-}
 
-export default function Profile (props:IPokemon) {
-
-  const {data:pokemon} = props
-  const {name} = pokemon
-  const lowerCaseName = name.toLowerCase()
-
-  const { status, data, error, isFetching, isLoading, isError }:IPokemonInfo = usePokemonInfo(lowerCaseName);
-  console.log("Status:", status);
-  console.log("Error:", error);
-  console.log("Data:", data);
-  console.log("Is Fetching:", isFetching);
-  console.log("Is Loading:", isLoading);
-  console.log("Is Error:", isError);
-
-  if (isLoading) {
+  if (query.isLoading) {
      return <span>Loading...</span>
    }
  
-   if (isError) {
-     return <span>Error: {error.message}</span>
+   if (query.isError) {
+     return <span>Error: {query.error.message}</span>
    }
 
   return (
     <div>
-      <h1>{pokemon.name}</h1>
-      <img src={pokemon.images.large} />
+      <h1>{data.name}</h1>
+      <img src={data.images.large} />
     </div>
   )
 }
