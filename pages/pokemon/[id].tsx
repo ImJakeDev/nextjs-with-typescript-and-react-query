@@ -15,10 +15,10 @@ export default function Pokemon() {
       <button type="button" onClick={() => router.back()}>
         Click here to go back
       </button>
-      {!query.isFetching && !query.isLoading && query.isSuccess ? (
+      {!query.isFetching && !query.isLoading && !query.isError && query.isSuccess ? (
         <Profile data={query.data} />
       ) : (
-        <div>Loading</div>
+        query.isError ? <div>{query.error.message}</div> : <div>Loading...</div>
       )}
     </div>
   );
