@@ -1,5 +1,6 @@
 import { usePokemonInfo, IPokemonQuery } from '../../hooks/usePokeInfo'
 import {IPokemon} from '../../types/pokemon-tcg-interface'
+import Loader from '../../components/pokemon/Loader'
 
 export default function Profile ({data}:IPokemon) {
   const pokemon = data;
@@ -7,7 +8,7 @@ export default function Profile ({data}:IPokemon) {
   const query:IPokemonQuery = usePokemonInfo(pokemon.name.toLowerCase());
 
   if (query.isLoading) {
-    return <span>Loading...</span>
+    return <Loader />
   }
  
   if (query.isError) {

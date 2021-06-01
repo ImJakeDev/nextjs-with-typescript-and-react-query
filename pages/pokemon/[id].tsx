@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { usePokemonId, IPokemonTCGIdQuery } from "../../hooks/usePokemonId";
 import Profile from '../../components/pokemon/Profile'
+import Loader from '../../components/pokemon/Loader'
 
 export default function Pokemon() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Pokemon() {
       {!query.isFetching && !query.isLoading && !query.isError && query.isSuccess ? (
         <Profile data={query.data} />
       ) : (
-        query.isError ? <div>{query.error.message}</div> : <div>Loading...</div>
+        query.isError ? <div>{query.error.message}</div> : <Loader/>
       )}
     </div>
   );

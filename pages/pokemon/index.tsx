@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import usePokeCards from '../../hooks/usePokeCards'
 import Card from '../../components/pokemon/Card'
+import Loader from '../../components/pokemon/Loader'
 import styles from '../../styles/Pokemon.module.css'
 import {IPokemonData} from '../../types/pokemon-tcg-interface'
 
@@ -23,7 +24,7 @@ export default function Pokemon() {
           ))}
         </div>
       ):(
-        <div>Loading</div>
+        <Loader/>
       )}
     </div>
   )
