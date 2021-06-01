@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import usePokeCards from '../../hooks/usePokeCards'
+import { usePokecards, ITradingCardGameQuery } from '../../hooks/usePokeCards'
 import Card from '../../components/pokemon/Card'
 import Loader from '../../components/pokemon/Loader'
 import styles from '../../styles/Pokemon.module.css'
@@ -8,18 +8,27 @@ import {IPokemonData} from '../../types/pokemon-tcg-interface'
 export default function Pokemon() {
   const router = useRouter();
 
-  const { data, isFetching } = usePokeCards();
+  const query:ITradingCardGameQuery = usePokecards();
 
-  !isFetching ? console.log("The first card obj", data[0]) : console.log(isFetching);
+  console.log(query);
+  
+
+  if (query.isLoading) {
+    return <Loader />
+  }
+ 
+  if (query.isError) {
+    return <span>Error: {query.error.message}</span>
+  }
 
   return (
     <div>
       <button type="button" onClick={() => router.back()}>
         Click here to go back
       </button>
-      {!isFetching ? (
+      {!query.isFetching ? (
         <div className={styles.container}>
-          {data.map((card:IPokemonData, id:string) => (
+          {query.data.map((card:IPokemonData, id:string) => (
             <Card key={id + card.id} small={card.images.small} id={card.id} />
           ))}
         </div>
