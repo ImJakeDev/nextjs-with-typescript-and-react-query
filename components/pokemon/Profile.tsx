@@ -16,7 +16,15 @@ export default function Profile ({data}:IPokemon) {
 
   return (
     <div>
-      <h1>{pokemon.name}</h1>
+      <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        {query.data.sprites.front_default ? (
+            <img src={query.data.sprites.front_default} />
+          ):(
+            <div>No sprite data...</div>
+        )}
+        <h1>{pokemon.name}</h1>
+      </div>
+      <br></br>
       <img src={pokemon.images.large} />
     </div>
   )
